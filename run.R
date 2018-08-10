@@ -62,3 +62,8 @@ capitals_tf
 # 12 10  DEU        Germany   Berlin   POINT (13.38 52.52)
 
 plot(capitals_tf, col = "black", add = T)
+
+library(sp)
+capitals_sp <- as(capitals_sf, "Spatial")
+capitals_stp <- sp::spTransform(capitals_sp, CRSobj = crs(windspeed))
+plot(capitals_stp, col = "red", add = T)
